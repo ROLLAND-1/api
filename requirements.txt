@@ -1,7 +1,7 @@
 tensorflow
 fastapi
 uvicorn
-python-multipart
+# python-multipart
 pillow
 # tensorflow-serving-api==2.5.0
 # matplotlib
