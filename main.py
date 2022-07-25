@@ -13,7 +13,7 @@ app = FastAPI()
 MODEL = tf.keras.models.load_model("./saved_models/1")
 
 
-CLASS_NAMES = ["Early Blight", "Late Blight" "Healthy"]
+CLASS_NAMES = ["Early Blight", "Late Blight" ,"Healthy"]
 
 @app.get("/ping")
 async def ping():
@@ -36,6 +36,7 @@ async def predict(
     
     predictions = MODEL.predict(img_batch)
     
+
     predicted_class = CLASS_NAMES [np.argmax(predictions[0])]
     confidence = np.max(predictions[0])
     return  {
@@ -52,4 +53,4 @@ async def predict(
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host='localhost', port=8000)
+    uvicorn.run(app, port=8000)
